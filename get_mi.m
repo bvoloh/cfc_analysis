@@ -3,6 +3,7 @@ function out = get_mi(lf_phase,hf_env,nbins,nsurr,randType)
 % out = get_MI(lf_phase,hf_env,nbins,nsurr,randType)
 %
 % This function calls "calc_mi" to calculate MI values 
+% Inputs: 
 % - lf_phase/ hf_env are matrices with phase and amplitude information, respectivley.
 %   The first two dimensions are "time-freq". Concatenating trials should 
 %   be done along the first dimesions. Alternatively, the matrices can be extended into the 
@@ -16,7 +17,20 @@ function out = get_mi(lf_phase,hf_env,nbins,nsurr,randType)
 %       - 2 = timesplice: randomly partitions signal into 2 slices, and
 %       rearranges the order of these slices
 %       - 3 = randtrial: random permutation of trials of the amplitude signal
+%
+% Outputs:
+% - out: structure with five fields
+%        MI: Modulation Index
+%        MIp: associated p-value (=nan if nargs<4)
+%        MIsurrmi: average MI across surroagte MI values (=nan if nargs<4)
+%        mean_amps: matrix one dimension higher than out.MI, corresponding
+%                   to the average amplitude per phase bin. Useful for
+%                   calculating preferred phase
+%        ninds: number of instantensou observations that were used to
+%               calculate the MI
 
+% Copyright 2014, Benjamin Voloh
+% Distributed under a GNU GENERAL PUBLIC LICENSE
 
 %CHECKS
 %check is randomization stats should be retrieved
