@@ -1,5 +1,11 @@
 function newx = randomize_signal(x,randType,highdim)
- 
+% randomizes signal for statistical anlaysis
+% newx = randomize_signal(x,randType,highdim)
+
+% Copyright 2014, Benjamin Voloh
+% Distributed under a GNU GENERAL PUBLIC LICENSE
+
+
 if randType==1
     if highdim
         newx = scramble_phase3(x);

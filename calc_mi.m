@@ -1,9 +1,10 @@
 function [MI] = calc_mi(centers, mean_amps, Q)
 % calcuates MI based on the KL distance (Tort et al 2010)
 % [MI] = calc_mi(centers, mean_amps, uniform)
+%
 % inputs: 
 %   - centres: phase bin centres
-%   - mean_amps: average amplitude per pahse bin
+%   - mean_amps: average amplitude per phase bin
 %   - Q: hypothesized (eg uniform) distribution
 % outputs:
 %   - MI: normalized KL distance

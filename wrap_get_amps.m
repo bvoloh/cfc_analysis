@@ -1,5 +1,21 @@
 function [mean_amps, ninds]=wrap_get_amps(lf_phase, hf_env, bins, highdim)
 % extracts mean amplitde per phase bins
+% [mean_amps, ninds]=wrap_get_amps(lf_phase, hf_env, bins, highdim)
+%
+% Inputs:
+%       - lf_phase: TxN array of phases, where T=# of time points and 
+%                   N= # of frequencies
+%       - hf_env: TxM array of amplitude envelopes, where 
+%                 T=# of time points and M= # of frequencies
+%       - bins: 2xN array of phase bins, where N= # of phase bins
+%       - highdim= rtue or false, determines which functions are called
+%
+% Outputs:
+%       - mean_amps: NxM array of average amplitude in each pahse bin
+%       - ninds: number of observations used for each entry of mean_amps
+
+% Copyright 2014, Benjamin Voloh
+% Distributed under a GNU GENERAL PUBLIC LICENSE
 
 if highdim
     [mean_amps, ninds] = get_amps3(lf_phase, hf_env, bins);
