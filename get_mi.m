@@ -104,7 +104,7 @@ end
 dimsurr=ndims(surr_mi);
 
 out.MIp       = ( sum(bsxfun(@gt, surr_mi, out.MI),dimsurr)+1 )./(nsurr+1);   
-out.MIsurr  = mean(surr_mi,dimsurr);   
+out.MIsurr    = mean(surr_mi,dimsurr);   
 out.mean_amps = mean_amps;  %useful halfstep, can calculate preferred phase later                                                   
 out.ninds     = ninds;
 
