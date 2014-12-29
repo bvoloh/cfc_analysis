@@ -36,4 +36,4 @@ t2zpks
 chitest
 mcnemar (from Cardillo, 2007)
 bonf_holm (from Groppe, 2010)
-make_phase_bins (from Valiant, 2011)
+make_phase_bins (from Valiante, 2011)
