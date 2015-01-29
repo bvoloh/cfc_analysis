@@ -1,13 +1,13 @@
-function varargout=t2zpks(Z,time,bins)
-% Chi-square test on histogram of Rayleigh Z peaks
+function varargout=rayz2zpks(Z,time,bins)
+% Chi-square test on histogram of peaks of time-resolved Rayleigh Z scores
 %
-% t2zpks(Z,time,bins)
-% [stats] = t2zpks(Z,time,bins)
-% [stats,edges] = t2zpks(Z,time,bins)
-% [stats,edges,bincentre] = t2zpks(Z,time,bins)
+% rayz2zpks(Z,time,bins)
+% [stats] = rayz2zpks(Z,time,bins)
+% [stats,edges] = rayz2zpks(Z,time,bins)
+% [stats,edges,bincentre] = rayz2zpks(Z,time,bins)
 %
 % Inputs:
-% Z: N*t matrix of Rayleigh Z values, where n=# of LFPs, and t=time points
+% Z: N*t matrix of Rayleigh Z values, where N=# of LFPs, and t=time points
 % time: 1*t vector of the time
 % bins: either 1) an integer specifying the number of bin centers, or 
 %              2) a vector of the edges of the bins
@@ -15,8 +15,9 @@ function varargout=t2zpks(Z,time,bins)
 % Outputs:
 % stats: structure with fields corresponding to the observed frequency,
 %        expected frequency, X2 and p value
-% edges: edges of histrogram bins
-% bincentre: centre of histogram bins
+% edges: edges of histrogram bins. Useful for plotting historgrams.
+% bincentre: centre of histogram bins. Useful to call rayz2zpks again when
+%            comparing conditions
 
 % Copyright 2014, Benjamin Voloh
 % Distributed under a GNU GENERAL PUBLIC LICENSE

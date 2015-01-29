@@ -1,8 +1,8 @@
-function [stat,p]=wilx_cfcdiff(a,b,amask,bmask)
+function [stat,p]=cfcdiff_wilx(a,b,amask,bmask)
 % Wilcoxon signed-rank test on normalized difference in CFC
 %
-% [stat,p]=ana_dmi(a,b)
-% [stat,p]=ana_dmi(a,b,amask,bmask)
+% [stat,p]=cfcdiff_wilx(a,b)
+% [stat,p]=cfcdiff_wilx(a,b,amask,bmask)
 %
 % normalized difference=(b-a)/(b+a). If logical matrices amask and bmask
 % are supplied, then they are used to mask a and b to zero, respectivley.

@@ -2,13 +2,14 @@ function stats_anatomy(nall,ocouple)
 % Pearson's chi-square test and Z-score for proportions on
 % adjacency matrix. 
 %
-% anat_tests(nall,ocouple)
+% stats_anatomy(nall,ocouple)
 % 
 % Inputs:
 % nall: adjacency matrix of all recorded LFP pairs
 % ocouple: adjacency matrix of LFP pairs with observed coupling
 %
 % Area for phase must be along rows, area for amplitude must be along columns.
+% Results of the statistical tests will be displayed in the command window.
 
 % Copyright 2014, Benjamin Voloh
 % Distributed under a GNU GENERAL PUBLIC LICENSE
