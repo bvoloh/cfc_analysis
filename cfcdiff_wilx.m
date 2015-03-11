@@ -18,6 +18,8 @@ if nargin>2
     else
         surrMask=1;
     end
+else
+    surrMask=0;
 end
     
 %mask non-significant values to zero
