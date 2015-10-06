@@ -26,7 +26,7 @@ function out = get_mi(lf_phase,hf_env,nbins,nsurr,randType)
 %        mean_amps: matrix one dimension higher than out.MI, where the final dimension
 %                   corresponds to the average amplitude per phase bin. Useful for
 %                   calculating preferred phase
-%        ninds: number of instantensou observations that were used to
+%        ninds: number of instantaneous observations that were used to
 %               calculate the MI
 
 % Copyright 2014, Benjamin Voloh
@@ -71,25 +71,25 @@ out.MIp        = nan(size(lf_phase,2),size(hf_env,2),size(hf_env,dimtr));
 out.MIsurrmi   = nan(size(lf_phase,2),size(hf_env,2),size(hf_env,dimtr));
 
 % calculate observed MI
+disp('calcualting observed MI...')
 [mean_amps, ninds] = wrap_get_amps(lf_phase, hf_env, bins, highdim); %size(mean_amps)= #phase freq, #ampfreq, nbins
-uniform = 1/length(centers) .* ones(size(mean_amps));
+uniform = 1/length(centers) .* ones(size(mean_amps)); %calculate here instead of in calc_mi for efficiency
 out.MI = calc_mi(centers, mean_amps, uniform);
 
 % calculate surrogate stats
 if doSurr
+    disp('permutation test...')
     surr_mi = zeros([size(out.MI), nsurr]);
-
 
     fn=0;
     for s=1:nsurr
         %updatecounter(s,[1 nsurr],'surrogate run: ')
-
+        disp(['surrogate run # ' num2str(s)])
+        
         %randomize signal
         rot_hf_env = randomize_signal(hf_env,randType,highdim);
 
         [surr_amps, ~] = wrap_get_amps(lf_phase, rot_hf_env, bins, highdim);
-
-        dimbin=ndims(surr_amps);
 
         %use linear index to flexibly account for different possible
         %dimensions
@@ -98,13 +98,15 @@ if doSurr
         
         surr_mi(st:fn) = calc_mi(centers, surr_amps, uniform); %update last
     end
+    
+    %assign output
+    dimsurr=ndims(surr_mi);
+
+    out.MIp       = ( sum(bsxfun(@gt, surr_mi, out.MI),dimsurr)+1 )./(nsurr+1);   
+    out.MIsurr    = mean(surr_mi,dimsurr);   
 end
 
 %assign outputs
-dimsurr=ndims(surr_mi);
-
-out.MIp       = ( sum(bsxfun(@gt, surr_mi, out.MI),dimsurr)+1 )./(nsurr+1);   
-out.MIsurr    = mean(surr_mi,dimsurr);   
 out.mean_amps = mean_amps;  %useful halfstep, can calculate preferred phase later                                                   
 out.ninds     = ninds;
 

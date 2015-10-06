@@ -1,9 +1,8 @@
-function [varargout]=cfcdiff_wilx(a,b,amask,bmask)
+function [stat,p,d]=cfcdiff_wilx(a,b,amask,bmask)
 % Wilcoxon signed-rank test on normalized difference in CFC
 %
 % [stat,p]=cfcdiff_wilx(a,b)
 % [stat,p]=cfcdiff_wilx(a,b,amask,bmask)
-% [stat,p,d]=cfcdiff_wilx(...)
 %
 % normalized difference=(b-a)/(b+a). If logical matrices amask and bmask
 % are supplied, then they are used to mask a and b to zero, respectivley.
@@ -15,7 +14,7 @@ function [varargout]=cfcdiff_wilx(a,b,amask,bmask)
 if nargin>2
     %logic check
     if ~islogical(amask) || ~islogical(bmask)
-        error('amask and bmask must be logical')
+        error('ap and bp must be logical')
     else
         surrMask=1;
     end
@@ -44,9 +43,4 @@ end
 alpha=0.05;
 [p,~]=bonf_holm(p,alpha);
 
-%output
-varargout{1}=stat;
-varargout{2}=p;
-if nargout>2
-    varargout{3}=d;
-end
+

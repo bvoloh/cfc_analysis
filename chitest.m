@@ -33,7 +33,7 @@ if sum(size(expected)==size(observed))~=2; expected=expected'; end
 
 
 % yates correction?
-if yates; correction=0.05;
+if yates; correction=0.5;
 else correction=0;
 end
 
