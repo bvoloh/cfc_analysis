@@ -1,6 +1,6 @@
 function [bins, centers] = make_phase_bins(nbins)
 % creates equally sized phase bins
-
+%
 % Copyright 2011, Taufik Valiante
 % Distributed under a GNU GENERAL PUBLIC LICENSE
 

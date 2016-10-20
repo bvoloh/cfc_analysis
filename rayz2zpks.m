@@ -23,10 +23,10 @@ function varargout=rayz2zpks(Z,time,bins)
 % Distributed under a GNU GENERAL PUBLIC LICENSE
 
 % defaults and initial values
-if isinteger(bins)
+if isnumeric(bins)
     nbins=bins;
     edges = linspace(time(1),time(end),nbins+1);
-elseif isvector(bins)
+elseif numel(bins)>1
     nbins=length(bins)-1;
     edges=bins;
     
