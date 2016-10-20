@@ -20,20 +20,27 @@ MATLAB
 
 
 INCLUDED FUNCTIONS:
-get_mi
-wrap_get_amps
-calc_mi
-get_wplf
-calc_wplf
-randomize_signal
-get_miphase
-get_miphase_peaks
-circfindpeaks
-normdiff
-wilx_cfcdiff
-stats_anatomy
-t2zpks
-chitest
-mcnemar (from Cardillo, 2007)
-bonf_holm (from Groppe, 2010)
-make_phase_bins (from Valiante, 2011)
+
+    bonf_holm.m (from Groppe, 2010)
+    calc_mi.m
+    calc_wplf.m
+    cfcdiff_wilx.m
+    chitest.m
+    circ_rtest2.m
+    circfindpeaks.m
+    get_mi.m
+    get_miphase.m
+    get_miphase_peaks.m
+    get_rayz_time.m
+    get_wplf.m
+    get_wplfphase.m
+    make_phase_bins.m (from Valiante, 2011)
+    mcnemar.m (from Cardillo, 2007)
+    normdiff.m
+    randomize_signal.m
+    rayz2zpks.m
+    stats_anatomy.m
+    vararginchk.m
+    wrap_get_amps.m
+
+
